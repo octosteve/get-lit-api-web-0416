@@ -1,7 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+recipes = File.readlines('db/pdt_recipes.txt')
+recipes.map! {|recipe| recipe.strip}.reject! {|recipe| recipe.empty?}
+
+recipes = recipes.slice_before {|recipe| recipe.upcase == recipe}.map do |recipe|
+  Cocktail.new_from_book(recipe)
+end
