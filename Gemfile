@@ -11,6 +11,8 @@ gem 'spring', :group => :development
 gem 'pg'
 gem 'active_model_serializers', '~> 0.10.0'
 
+gem 'rack-cors'
+gem 'pry-rails'
 
 
 # To use ActiveModel has_secure_password
